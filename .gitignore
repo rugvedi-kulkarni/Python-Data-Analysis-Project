@@ -1,0 +1,11 @@
+# Dataset files
+student_record.txt
+Datasets/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter files
+.ipynb_checkpoints/
+      
