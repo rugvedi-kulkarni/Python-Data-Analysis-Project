@@ -1,32 +1,21 @@
 # Student Data Analysis Using Core Python
-## Project Report
 
 ## 1. Introduction
 
-Data analysis involves examining structured information to identify patterns, calculate statistics, compare categories, and derive meaningful insights.
-
-This project applies Core Python programming concepts to analyze a student dataset containing approximately 185,667 records. The analysis is performed using Python's built-in file handling, string operations, loops, conditional statements, and basic data structures.
-
-The project consists of 15 analytical questions. Each question focuses on extracting specific information or calculating a result from the dataset.
+Data analysis involves processing structured data to identify patterns, calculate statistics, and derive meaningful insights. This project analyzes approximately 185,667 student records using Core Python. It applies file handling, string operations, loops, conditional statements, lists, and arithmetic operations without using specialized data analysis libraries.
 
 ## 2. Problem Statement
 
-Large datasets contain information that can be difficult to examine manually. Processing such data requires a systematic approach to read records, extract relevant fields, apply conditions, and calculate results accurately.
-
-The objective of this project is to solve 15 student-data analysis problems using Core Python without depending on specialized data analysis libraries.
+Analyzing a large number of student records manually is time-consuming. This project aims to automate student data analysis by solving 15 analytical problems using fundamental Python programming concepts.
 
 ## 3. Objectives
 
-The primary objectives are:
-
-1. Read and process a structured text dataset.
-2. Extract individual fields from records using the semicolon delimiter.
-3. Apply conditional statements to identify relevant records.
-4. Use loops to process multiple records.
-5. Calculate counts, averages, and other statistics where required.
-6. Analyze student records based on specified criteria.
-7. Interpret the calculated results.
-8. Strengthen practical Python programming and problem-solving skills.
+- Process a large student dataset using Core Python.
+- Extract and analyze relevant fields from records.
+- Calculate averages, counts, percentages, and mark distributions.
+- Compare student performance across regions.
+- Identify specific student records using student IDs.
+- Develop practical programming and problem-solving skills.
 
 ## 4. Dataset Description
 
@@ -36,172 +25,88 @@ The primary objectives are:
 | Number of records | Approximately 185,667 |
 | File format | Plain text |
 | Field separator | Semicolon (`;`) |
-| Processing language | Python |
+| Programming language | Python |
 | Analysis approach | Core Python |
 
-### Dataset Source
+**Dataset source:** To be added after verifying the original source and applicable license.
 
-Source: [Insert the verified dataset source]
-
-### Dataset Fields
-
-[Document the actual column names, their order, and the meaning of each field after checking the dataset.]
-
-### Data Handling
-
-The program reads records from the text file and separates individual fields using Python's string `split(';')` operation.
-
-The required fields are then selected to perform the calculations specified in each question.
-
-The dataset source, licensing terms, missing-value conventions, and field definitions should be verified before publishing the project.
+**Data fields:** The code uses the first field as the region code, the second as the student ID, the third as the student name, and the sixth as Mathematics marks. Other fields should be documented after verifying the dataset structure.
 
 ## 5. Tools and Technologies
 
 - Python
-- File handling
-- Strings and string methods
-- Lists
-- Loops (`for`)
-- Conditional statements (`if`)
-- Variables and counters
-- Basic arithmetic operations
-- Git and GitHub for version control and project presentation
+- File handling and string manipulation
+- Lists, loops, and conditional statements
+- Counters, accumulators, and arithmetic operations
+- Git and GitHub
 
 ## 6. Methodology
 
-The project follows these general steps:
+The project follows these steps:
 
-1. Open the dataset file.
-2. Read records from the file.
-3. Remove unnecessary leading and trailing whitespace.
-4. Split each record using the semicolon delimiter.
-5. Extract the fields needed for the current question.
-6. Apply the required conditions.
-7. Calculate the result using counters, lists, accumulators, or other relevant Python operations.
-8. Display the result using `print()`.
-9. Verify the output against the question's requirements.
+1. Open the student dataset file.
+2. Read records and split each record using the semicolon delimiter.
+3. Extract the required fields.
+4. Apply conditions to identify relevant student records.
+5. Calculate the required statistics using Python.
+6. Display and validate the results.
 
-The exact steps vary depending on the analytical question.
+The analyses are performed through separate file-processing operations, using lists or running totals depending on the problem.
 
 ## 7. Analysis and Results
 
-This section documents all 15 questions, their implementation approach, actual program outputs, and interpretations.
+The project covers the following 15 analytical questions:
 
-**Important:** Insert the actual outputs produced by `code.py`. Do not use estimated or sample numbers as final results.
+1. Count students belonging to Region A.
+2. Calculate the average Mathematics marks for Region B.
+3. Count students scoring above 50 in Mathematics.
+4. Find the highest Mathematics marks.
+5. Calculate the Mathematics pass percentage using a threshold of 35 marks.
+6. Compare average Mathematics marks between Regions A and B.
+7. Identify the highest-scoring student in Region A.
+8. Count students scoring between 40 and 70, inclusive.
+9. Calculate the average marks of students scoring at least 75 and count qualifying students.
+10. Compare pass percentages between Regions A and B.
+11. Create a Mathematics marks distribution across four score ranges.
+12. Calculate the difference between the highest and lowest Mathematics marks.
+13. Search for a specific student using their ID and display their details.
+14. Skip invalid Mathematics marks, count skipped records, and calculate the average of valid marks.
+15. Calculate Region A's average Mathematics marks using a running total and counter instead of storing every mark.
 
-### Question 1: Count Students from Region A
-
-**Objective:** Determine the number of student records belonging to Region A.
-
-**Methodology:** Read each record, extract the region code, compare it with `A`, and increment a counter for matching records.
-
-**Python concepts:** File handling, string splitting, loops, conditional statements, and counters.
-
-**Actual output:**
-
-```text
-[Insert the output produced by your program]
-```
-
-**Interpretation:**
-
-[Explain how many matching records were found and what the count represents.]
-
-### Question 2: Calculate Average Mathematics Marks for Region B
-
-**Objective:** Calculate the average Mathematics marks for students belonging to Region B.
-
-**Methodology:** Identify the relevant region and marks fields, accumulate the valid Mathematics marks, count the included records, and calculate the average.
-
-**Python concepts:** Lists or accumulators, conditions, numeric conversion, and arithmetic operations.
-
-**Actual output:**
-
-```text
-[Insert the output produced by your program]
-```
-
-**Interpretation:**
-
-[Explain the calculated average and the records included in the calculation.]
-
-### Questions 3–15
-
-For each remaining question, use the following format.
-
-#### Question 3: [Insert the exact question]
-
-**Objective:** [State what the analysis measures.]
-
-**Methodology:** [Describe the logic used in the code.]
-
-**Python concepts:** [List the relevant concepts.]
-
-**Actual output:**
-
-```text
-[Insert the actual output]
-```
-
-**Interpretation:** [Explain what the result means.]
-
-Repeat this structure for Questions 4 through 15, using the exact questions and results from your completed program.
+**Results:** The actual outputs generated by the Python program should be recorded alongside the corresponding questions when presenting the complete analysis.
 
 ## 8. Key Findings
 
-Summarize the most important findings from the completed analysis.
+The analysis provides insights into student performance, regional averages, pass percentages, score distributions, and individual student records.
 
-- **Finding 1:** [Insert a verified finding.]
-- **Finding 2:** [Insert a verified finding.]
-- **Finding 3:** [Insert a verified finding.]
-
-These findings should be based on the actual outputs rather than assumptions about the dataset.
+Specific numerical findings should be added after verifying the program outputs.
 
 ## 9. Challenges and Limitations
 
-Potential challenges in this type of analysis include:
-
-- Processing records with missing or malformed fields.
-- Converting numeric strings into valid numeric values.
-- Maintaining the correct field positions when extracting data.
-- Ensuring that average calculations include the intended records.
+- Extracting the correct fields from structured text records.
+- Converting marks from strings into numeric values.
+- Handling invalid or missing data.
+- Maintaining accurate counts and averages.
 - Avoiding division by zero when no records match a condition.
-- Using file paths that work across different computers.
-- Repeatedly reading the dataset for separate questions, which may increase execution time.
-
-Document only the challenges that are relevant to the implementation.
+- Repeatedly reading the dataset for separate analyses.
 
 ## 10. Learning Outcomes
 
-This project helped develop practical experience in:
-
-- Reading structured text files using Python.
-- Processing records with string operations.
-- Applying loops and conditional logic to real data.
-- Calculating basic statistics.
-- Solving multiple analytical problems systematically.
-- Understanding the importance of output validation.
-- Documenting code and analytical findings.
+This project strengthened practical understanding of file handling, string processing, loops, conditional logic, lists, numeric conversions, and statistical calculations using Core Python. It also introduced efficient processing through running totals and counters.
 
 ## 11. Conclusion
 
-This project demonstrates how Core Python can be used to analyze a large structured dataset without relying on specialized data analysis libraries.
-
-By solving 15 analytical questions, the project applies fundamental programming concepts to practical data-processing tasks. It also provides a foundation for further work in data analysis and visualization.
-
-Future improvements can include using NumPy and Pandas for more advanced data manipulation and Matplotlib and Seaborn for visualizing the findings in a separate project.
+This project demonstrates how Core Python can be used to analyze a dataset containing approximately 185,667 student records without relying on specialized data analysis libraries. By solving 15 analytical problems, the project applies fundamental programming concepts to a practical data-processing task and builds a foundation for more advanced analysis using NumPy, Pandas, Matplotlib, and Seaborn.
 
 ## 12. Future Scope
 
-Possible extensions include:
-
-1. Reimplementing selected analyses using Pandas and NumPy.
-2. Creating charts to compare student groups and identify patterns.
-3. Improving data validation and exception handling.
-4. Refactoring repeated code into reusable functions.
-5. Comparing execution time across different implementations.
+- Reimplement the analyses using NumPy and Pandas.
+- Visualize student performance using Matplotlib and Seaborn.
+- Improve data validation and exception handling.
+- Refactor repeated logic into reusable functions.
+- Compare execution time and memory usage across implementations.
 
 ## 13. References
 
-- Python documentation: https://docs.python.org/3/
-- Dataset source: [Insert the verified source and applicable license information]
+- Python Documentation: https://docs.python.org/3/
+- Dataset source and license: To be verified and added.
