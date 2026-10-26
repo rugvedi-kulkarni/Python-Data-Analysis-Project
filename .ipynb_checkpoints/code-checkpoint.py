@@ -2,42 +2,61 @@
 Student data analysis - using core python
 Hereafter, assume marks of maths is at 5th index
 """
-# Count students from region A -> expected a single output
 
+# def file_reading():
+#     list_lines = []
+    
+#     with open("Datasets/student_record.txt") as file:
+#         for line in file:
+#             each_field = line.strip().split(";")
+
+# Count students from region A -> expected a single output
 count_A = 0
 
 with open("Datasets/student_record.txt") as file:
     for line in file:
         each_field = line.strip().split(";")
         region_code = each_field[0]
-
-        if region_code == "A":
-                count_A += 1   
         
-print(f"Students from region A: {count_A}")
+        if "A" in region_code:
+            count_A += 1  
+
+if count_A:
+    print(f"Students from region A: {count_A}")
+else:
+    print(f'No students from region A')
 
 print("=========================================================")
 
 # Calculate the average Maths marks for region B 
-
-marks = []
+'''
+sum_math_marks = 0
+rB_students = 0
 
 with open("Datasets/student_record.txt") as file:
+
     for line in file:
         
         each_field = line.strip().split(";")
-        region = each_field[0]
+
+        region_code = each_field[0]
     
         region_math_marks = float(each_field[5])
-    
-        if region == "B":
-            marks.append(region_math_marks)
         
-if marks == True:
-    avg_math_marks = sum(marks) / len(marks)
-    print(f'Average marks from region B is {avg_math_marks}\n') 
+        if region_code == "B":
+            sum_math_marks += region_math_marks
+            rB_students  = rB_students + 1
+        
+        
+if rB_students != 0:
+    avg_math_marks = sum_math_marks / rB_students
+    print(f'Average marks from region B is {avg_math_marks}') 
+
+else:
+    print(f'Division-by-zero error')
 
 print("=======================================================")
+
 
 # Count students who scored above 50 in Maths
 
@@ -94,7 +113,7 @@ with open("Datasets/student_record.txt") as file:
         if maths_marks >= 35:
             marks.append(maths_marks)
 
-if marks == True:
+if marks:
     passed_students = len(marks) # total number of student scored >= 35 in maths
     percentage = passed_students / total_students * 100
     print(f'Percentage if passed students: {percentage}')
@@ -123,11 +142,16 @@ with open("Datasets/student_record.txt") as file:
         elif region_code == "B":
             region_marks_B.append(maths_marks)
 
-avg_marks_A = sum(region_marks_A) / len(region_marks_A)
-avg_marks_B = sum(region_marks_B) / len(region_marks_B)
+if region_marks_A:
+    avg_marks_A = sum(region_marks_A) / len(region_marks_A)
+    
+if region_marks_B:
+    avg_marks_B = sum(region_marks_B) / len(region_marks_B)
 
-print(f'Average marks for region A is {avg_marks_A}')
-print(f'Average marks for region B is {avg_marks_B}')
+    print(f'Average marks for region A is {avg_marks_A}')
+    print(f'Average marks for region B is {avg_marks_B}')
+else:
+    print("No marks for region A and region B")
 
 if avg_marks_A > avg_marks_B:
     print("Region A has highest average marks")
@@ -143,7 +167,8 @@ print("===================================================")
 # Find the student ID and Maths marks of the student with the highest Maths score in region A.
 
 marks = []
-ids = set()
+ids = []
+
 
 with open("Datasets/student_record.txt") as file:
     for line in file:
@@ -155,11 +180,15 @@ with open("Datasets/student_record.txt") as file:
         maths_marks = float(each_field[5])
     
         if region_code == "A":
-            ids.add(student_id)
-            marks.append(maths_marks)  
+            ids.append(student_id)
+            marks.append(maths_marks) 
 
-max_marks = max(marks)
-   
+if marks:
+    max_marks = max(marks)
+
+idx_max_marks = marks.index(max_marks)
+
+print(f'Maximum marks: {max_marks}, Student ID: {ids[idx_max_marks]}')  
 print("=======================================================")
 
 # Count students in a marks range. Count students whose Maths marks are between 40 and 70, inclusive.
@@ -170,11 +199,13 @@ with open("Datasets/student_record.txt") as file:
     for line in file:
         each_field = line.strip().split(";")
 
-        if type(each_field[5]) is str:
+        if type(each_field[5]) == str:
             math_marks = float(each_field[5])
-
-        if math_marks >= 40 and math_marks <= 70:
+            
+        if 40 <= math_marks <= 70:
             count += 1
+            
+# print(count)
 if count:
     print(f'Number of student scored between (40 - 70): {count}')
 else:
@@ -198,8 +229,8 @@ with open("Datasets/student_record.txt") as file:
             highest_marks.append(math_marks)
             count += 1
 
-
-avg = sum(highest_marks) / len(highest_marks)
+if highest_marks:
+    avg = sum(highest_marks) / len(highest_marks)
 
 print(f'Average of students who scored at least 75 is {avg}')
 
@@ -272,17 +303,13 @@ with open("Datasets/student_record.txt") as file:
         each_field = line.strip().split(";")
         math_marks = float(each_field[5])
 
-        if math_marks < 35:
-            group_1_count += 1
+        if math_marks < 35: group_1_count += 1
         
-        if math_marks >= 35 and math_marks <= 49:
-            group_2_count += 1
+        if math_marks >= 35 and math_marks <= 49: group_2_count += 1
         
-        if math_marks >= 50 and math_marks <= 69:
-            group_3_count += 1
+        if math_marks >= 50 and math_marks <= 69: group_3_count += 1
         
-        if math_marks >= 70:
-            group_4_count += 1
+        if math_marks >= 70: group_4_count += 1
 
 
 print(f'Total students scores marks below 35: {group_1_count}')       
@@ -303,8 +330,14 @@ marks = []
 with open("Datasets/student_record.txt") as file:
     for line in file:
         each_field = line.strip().split(";")
+
         math_marks = float(each_field[5])
 
+        # Additional changes
+        # if math_marks < 0:
+        #     new_math_marks = 0
+        #     print(each_field)
+            
         marks.append(math_marks)
 
 highest_marks = max(marks)
@@ -324,17 +357,27 @@ print("=========================================================")
 
 
 student_id = 84076
+student_info = {}
 
 with open("Datasets/student_record.txt") as file:
     for line in file:
         each_field = line.strip().split(";")
 
         if int(each_field[1]) == student_id:
-            print(f'Student name is {each_field[2]}')
-            print(f'Student region is {each_field[0]}')
-            print(f'Student math marks is {each_field[5]}')
+            student_name = each_field[2]
+            student_region = each_field[0]
+            student_math_marks = each_field[5]
         
             break
+
+student_info  = {
+    "student_id": student_id,
+    "student_name": student_name,
+    "student_region":student_region,
+    "student_math_marks": student_math_marks
+}
+
+print(student_info)
 
 print("========================================================================")
 
@@ -348,14 +391,16 @@ with open("Datasets/student_record.txt") as file:
         each_field = line.strip().split(";")
         math_marks = float(each_field[5])
 
-        if math_marks >= 0 and math_marks <= 100:
+        if 0 <= math_marks <= 100:
             valid_marks.append(math_marks)
         else:
             skipped_records += 1
 
 print(f'{skipped_records} records were skipped')
 
-avg_valid_marks = sum(valid_marks) / len(valid_marks)
+if valid_marks:
+    avg_valid_marks = sum(valid_marks) / len(valid_marks)
+    
 print(f'Average of valid marks: {avg_valid_marks}')
 
 print("==========================================================")
@@ -392,3 +437,4 @@ else:
 finally:
     print("End of the program")
 
+'''
